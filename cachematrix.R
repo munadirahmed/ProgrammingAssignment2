@@ -8,14 +8,14 @@
 ##############################
 
 ## The function takes a square matrix and creates an object. It can be thought
-## of as a function that creates a class of type makeCacheMatrix. Each object 
+## of as a class of type makeCacheMatrix. Each object 
 ## of this type exits in its own environment where it stores the value of the 
 ## matrix and it's inverse. The methods of these objects allow the user to 
 ## retrieve or reset the matrix and/or its inverse. 
 
-## When the setMatrix() method used on an existing object the inverse is reset to 
+## When the setMatrix() method is used on an existing object the inverse is reset to 
 ## null as the matrix stored in the object has changed. The user must then use
-## the setInverseMatrix() method to store the inverse of the new matrix
+## the setInverseMatrix() method to store the inverse of the new matrix.
 
 makeCacheMatrix <- function(aMatrix = matrix()) {
     CachedInverseMatrix <- NULL   # initialize the local variable in this function environment
@@ -31,7 +31,7 @@ makeCacheMatrix <- function(aMatrix = matrix()) {
         CachedInverseMatrix <<- NULL   # reinitialize the stored inverse matrix to null
     }
     
-    # This function stores returns the matrix stored in cache memory
+    # This function returns the matrix stored in cache memory
     
     # @param: N/A
     
@@ -49,7 +49,7 @@ makeCacheMatrix <- function(aMatrix = matrix()) {
         CachedInverseMatrix <<- invertedMatrix  
     } 
     
-    # This function stores returns the inverted matrix stored in cache memory
+    # This function returns the inverted matrix stored in cache memory
     
     # @param: N/A    
     
@@ -68,7 +68,7 @@ makeCacheMatrix <- function(aMatrix = matrix()) {
 ## if the inverse of the matrix stored in the object has already been cached.
 ## If the inverse has been calculated previously and stored then it just 
 ## returns the inverse. If the inverse has not been calculated and stored previously
-## the inverse is calculated and cached for future use.
+## the inverse is calculated, cached for future use, and then returned to the user.
 
 cacheSolve <- function(aMakeCacheMatrix, ...) {
     
